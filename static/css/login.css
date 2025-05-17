@@ -1,0 +1,41 @@
+body {
+    width: 100vw;
+    /*100%的窗口高度*/
+    height: 100vh;
+    background: url(../img/background_2.jpg) no-repeat;
+    /*背景大小填充*/
+    background-size: cover;
+    /*background-color: aqua;*/
+
+    /*弹性布局 水平垂直居中*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    width: 100%;
+    max-width: 400px; /* 限制最大宽度保持阅读舒适性 */
+    border-radius: 1rem; /* 更大圆角现代化设计 */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15); /* 添加柔和阴影提升层次感 */
+    background-image: linear-gradient(To bottom Right,rgba(197, 8, 33, 0.5),rgba(247, 244, 99, 0.5),rgba(5, 201, 109, 0.5));
+}
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25); /* 强化输入框聚焦效果 */
+}
+
+.bg-transparent-50 {
+    --bs-bg-opacity: 0.5;
+}
+
+
+/* 注册界面 */
+.register-card {
+    width: 100%;
+    max-width: 400px; /* 限制最大宽度保持阅读舒适性 */
+    border-radius: 1rem; /* 更大圆角现代化设计 */
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15); /* 添加柔和阴影提升层次感 */
+    background-image: linear-gradient(To bottom Right,rgba(197, 8, 33, 0.5),rgba(247, 244, 99, 0.5),rgba(5, 201, 109, 0.5));
+}
+
+

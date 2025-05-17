@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户管理</title>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!--    <link href="../../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="../../static/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+    <style>
+        :root {
+            --sidebar-width: 250px; /* 添加侧边栏变量 */
+        }
+        body {
+            background: #f8f9fa;
+        }
+        .navbar-brand {
+            font-weight: 600;
+        }
+        .data-table {
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1); /* 更柔和的阴影 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用深色导航栏提升专业感 -->
+    <nav class="navbar navbar-dark bg-dark border-bottom border-2 border-primary"> <!-- 添加底部高亮边框 -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-shield-lock me-2"></i>
+                管理员 控制
+            </a>
+            <div class="d-flex">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-outline-light">
+                    <img src="../../static/img/logo1.png" height="30" width="30"/>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid mt-4">
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="display-6 fw-bold">用户管理</h1> <!-- 使用更醒目的标题样式 -->
+                <hr class="border-primary opacity-100"> <!-- 彩色分隔线 -->
+            </div>
+        </div>
+
+        <div class="data-table table-responsive">
+            <a href="{{ url_for('admin.add_user') }}">添加用户</a>
+            <form class="d-flex mb-3" action="{{ url_for('admin.admin') }}" method="post">
+                <table class="table table-hover align-middle"> <!-- 添加悬停效果和垂直居中 -->
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">ID编号</th>
+                            <th scope="col">用户名</th>
+                            <th scope="col">邮箱</th>
+                            <th scope="col">手机号</th>
+                            <th scope="col">注册日期</th>
+                            <th scope="col">修改操作</th>
+                            <th scope="col">删除操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td class="fw-semibold text-muted">{{ user['id'] }}</td> <!-- 弱化ID颜色 -->
+                            <td>{{ user['username'] }}</td>
+                            <td><a href="mailto:{{ user['email'] }}" class="text-decoration-none">{{ user['email'] }}</a></td> <!-- 可点击邮箱 -->
+                            <td>{{ user['phone'] }}</td>
+                            <td><span class="badge bg-secondary">{{ user['registered_at'] }}</span></td> <!-- 时间标签化 -->
+                            <!-- 食谱列表中的修改按钮 -->
+                            <td>
+                                <form method="POST" action="{{ url_for('admin.select_user', user_name = user['username'])}}">
+                                    <button type="submit" class="text-red-600 hover:text-red-800">
+                                        修改
+                                    </button>
+                                </form>
+                            </td>
+                            <!-- 食谱列表中的删除按钮 -->
+                            <td>
+                                <form method="POST" action="{{ url_for('admin.delete_user', user_name = user['username'])}}">
+                                    <button type="submit"
+                                            onclick="return confirm('确定要删除此食谱吗？')"
+                                            class="text-red-600 hover:text-red-800">
+                                        删除
+                                    </button>
+                                </form>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

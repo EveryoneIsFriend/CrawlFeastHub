@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面</title>
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="register-card card mx-auto bg-transparent-50">
+            <div class="card-header bg-success text-white py-4 bg-transparent-50">
+                <h2 class="mb-0 text-center">创建账户</h2>
+            </div>
+            <div class="card-body px-4">
+                {% if error %}
+                <div class="alert alert-danger mb-4">{{ error }}</div>
+                {% endif %}
+                <form method="POST">
+                    <!-- 使用网格系统优化多列布局 -->
+                    <div class="row g-3 mb-4"> <!-- 添加间距 -->
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                <label for="username">用户名</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                <label for="email">邮箱</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6"> <!-- 响应式分列 -->
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <label for="password">密码</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+                                <label for="phone">手机号</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-lg w-100 py-2">
+                        注册
+                    </button>
+                </form>
+
+                <div class="mt-4 text-center">
+                    <span class="text-muted">已有账户?</span>
+                    <a href="{{ url_for('auth.login') }}" class="text-decoration-none ms-2">登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

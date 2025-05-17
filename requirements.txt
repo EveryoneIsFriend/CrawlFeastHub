@@ -1,0 +1,8 @@
+flask
+pymysql
+requests
+bs4
+lxml
+random
+numpy
+werkzeug.security

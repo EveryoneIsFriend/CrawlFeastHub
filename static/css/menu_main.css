@@ -1,0 +1,46 @@
+
+/*背景图片设置*/
+body {
+    background-image: url(../img/topbg.jpg);
+    background-size: cover;
+    /*background-position: center;*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* 自定义下拉菜单样式 */
+/*有了下方的相对定位，才能使用子元素的绝对定位*/
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* 确保下拉菜单出现在触发元素正下方 */
+    left: 0;
+    margin-top: 0; /* 移除默认的顶部外边距 */
+    max-width: 250px;  /*设置下拉菜单的最大宽度限制，适应在手机等窄屏的用处*/
+    background-color: #f8f9fa; /* 设置下拉菜单背景颜色 */
+    border: 1px solid #dee2e6; /* 设置下拉菜单边框 */
+}
+
+/* 确保下拉菜单容器有相对定位 */
+.nav-item {
+    position: relative;
+}
+
+
+.dropdown-item {
+    color: #151517; /* 设置下拉菜单项文字颜色 */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: #fff; /* 设置鼠标悬停或聚焦时菜单项文字颜色 */
+    background-color: #0d6efd; /* 设置鼠标悬停或聚焦时菜单项背景颜色 */
+}
+
+/* 制作云层的跟进效果，灵感来自刚子当年的作品（照片素材也是，嘿嘿）
+    更改使用 bt5中的img标签属性
+ */
+.clouds{
+    background: url(../img/zt/clouds.png) no-repeat;
+    background-size: cover;
+    z-index: -10;   /* 设置图层的层级位置 */
+}

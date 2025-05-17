@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/menu_main.css">
+
+    <link href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+</head>
+<body style="min-width: 2000px;">
+<!-- 背景图片设置（已取消，现已使用body属性设置背景图片）-->
+<div>
+    <!--  使用栅格网格设置最顶层的元素显示-->
+    <!--  顶部信息显示-->
+    <!--  使用fixed-top属性使得顶栏元素不随滚动条移动  -->
+    <div class="container-full fixed-top" style="height: 100px;background-color: #1c1f23">
+        <div class="row">
+            <div class="col-sm-3" style="margin-left: 100px"><img src="img/LOGO2.png" alt=""></div>
+            <!-- 使用 offset-sm-1 让表单元素向右偏移 2 列 -->
+            <div class="col-sm-3 offset-sm-2 pt-4 mt-2">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <label for="demo"></label>
+                        <input class="form-control input-lg" id="demo" name="email" placeholder="宫保鸡丁" type="text">
+                        <button class="input-group-text">搜索</button>
+                    </div>
+                </form>
+            </div>
+            <!-- 调整登录元素的列宽度和偏移 -->
+            <div class="col-sm-2 pt-4 mt-2">
+                <a href="{{url_for('auth.login')}}" class="nav-link"><span class="text-danger">登录</span></a>
+            </div>
+        </div>
+    </div>
+
+    <!--    导航栏设置样式  大小，背景，文字反色-->
+    <!-- 使用fixed-top属性使得顶栏元素不随滚动条移动  此处增加了margin-top元素，是导航栏显示在顶部信息栏的下方-->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" style="margin-top: 100px">
+        <!--        布局容器 以bootstrap5中的container样式  -->
+        <div class="container fs-5">
+            <img src="../../static/img/logo1.png" alt="">
+            <a href="#" class="navbar-brand fs-4">餐饮企划</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav_menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 格式化快捷键 Ctrl+Alt+L  -->
+            <!--  总结：Bootstrap 5 的下拉菜单可以使用 <div> 作为触发元素，只需确保正确设置 data-bs-toggle="dropdown" 属性。
+            下拉菜单的内容需要放在 <div class="dropdown-menu"> 中。方法灵活，适用于各种场景，尤其是在需要自定义触发元素时。-->
+            <!-- 导航栏的右侧的八大菜系，添加下拉菜单栏，列举详细的菜名-->
+            <div class="collapse navbar-collapse" id="nav_menu">
+                <ul class="navbar-nav ms-auto"> <!-- margin start  = margin-left -->
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            鲁菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            徽菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            粤菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            湘菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            川菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            苏菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            闽菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link dropdown-toggle"
+                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            浙菜
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">123</a>
+                            <div class="dropdown-divider"></div>    <!--下拉菜单的水平分割线-->
+                            <a class="dropdown-item" href="#">456</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">789</a>
+                        </div>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+
+
+    </nav>
+
+
+    <!-- 网页的主体内容-->
+    <div class="w-100 h-auto">     <!-- .container-fluid(有边缘间隙) --> .w-100 -->
+
+        <!-- 1. 设置导航栏与云层之间的间隙，以后可以适当的加入某些元素  -->
+        <div class="w-100" style="min-height: 800px">
+
+        </div>
+
+
+        <!--  2.  云层显示，获得立体层级效果    -->
+        <img src="../../static/img/zt/clouds.png" class="img-fluid w-100 h-auto" alt="...">
+
+        <!--  3.   云层下方的白色背景， 以后可适当添加某些元素-->
+        <div class="row">
+            <div class="col-12 pt-5" style="height: 800px;background-color: white">
+
+            </div>
+        </div>
+
+        <!--   4. 暂时还没想好做啥     -->
+        <div class="row">
+            <div class="col-lg-12 pt-5" style="height: 800px;background-color: white">
+
+            </div>
+        </div>
+    </div>
+
+    <!--  导航栏底部  -->
+
+
+
+</div>
+
+<!-- 推荐bootstrap5的js文件放在最下方，防止js文件中的某些函数引用不到 -->
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
