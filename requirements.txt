@@ -1,8 +1,7 @@
+bs4
+lxml
+numpy
 flask
 pymysql
 requests
-bs4
-lxml
-random
-numpy
-werkzeug.security
+werkzeug
